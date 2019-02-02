@@ -1,0 +1,14 @@
+[
+  {
+    "modid": "moddebugworld",
+    "name": "Mod Debug World Type",
+    "description": "Adds modids to debug mode.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://minecraft.curseforge.com/projects/mod-debug-world-type",
+    "updateUrl": "",
+    "authorList": [
+      "Darkhax"
+    ]
+  }
+]
