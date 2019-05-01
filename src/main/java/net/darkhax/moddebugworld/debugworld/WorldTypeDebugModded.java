@@ -1,5 +1,6 @@
 package net.darkhax.moddebugworld.debugworld;
 
+import net.darkhax.moddebugworld.ModDebugWorldType;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldType;
@@ -42,12 +43,16 @@ public class WorldTypeDebugModded extends WorldType {
 
         // Try to get the modid from the world name.
         final String modid = getWorldName(world).toLowerCase();
-
-        System.out.println("Searching for: " + modid);
+        
         // If the mod actually exists, use that generator.
         if (Loader.isModLoaded(modid)) {
 
             return new ChunkGeneratorDebugModded(world, modid);
+        }
+        
+        else {
+            
+            ModDebugWorldType.LOG.error("No mod found for ID {}, falling back to default worldgen.");
         }
 
         // Use the fallback generator.
