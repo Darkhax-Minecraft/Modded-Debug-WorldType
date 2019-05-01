@@ -11,8 +11,8 @@ import net.minecraft.world.WorldType;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 @Mod(modid = "moddebugworld", name = "ModDebugWorldType", version = "@VERSION@", dependencies = "required-after:bookshelf", certificateFingerprint = "@FINGERPRINT@")
 @EventBusSubscriber
@@ -27,7 +27,7 @@ public class ModDebugWorldType {
 
             // Get the debug world field so we can change the value. We need to replace this
             // field specifically, because vanilla hardcodes for it everywhere.
-            final Field debugWorldField = ReflectionHelper.findField(WorldType.class, "DEBUG_ALL_BLOCK_STATES", "field_180272_g");
+            final Field debugWorldField = ObfuscationReflectionHelper.findField(WorldType.class, "field_180272_g");
 
             // Sets the world type to null. This is needed to get around a hardcoded limit on
             // world type name. If this is not null, the new world type can not be created with
